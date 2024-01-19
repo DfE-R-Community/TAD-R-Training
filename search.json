@@ -1,17 +1,17 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "TAD R Training",
+    "objectID": "useful-resources.html",
+    "href": "useful-resources.html",
+    "title": "Useful Resources",
     "section": "",
-    "text": "Initial Setup\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nWojtek Klimowicz\n\n\n\n\n\n\nNo matching items"
+    "text": "The DfE R Community Training Support\nR for Data Science\nRStudio Cheatsheets"
   },
   {
     "objectID": "01-introduction-to-r/index.html",
     "href": "01-introduction-to-r/index.html",
     "title": "Initial Setup",
     "section": "",
-    "text": "RStudio Basics\n R Basics"
+    "text": "RStudio Basics\n R Basics\n Reading Files"
   },
   {
     "objectID": "01-introduction-to-r/index.html#installing-software-center",
@@ -54,5 +54,12 @@
     "title": "Initial Setup",
     "section": "Set up R Project",
     "text": "Set up R Project\nSet up up an R projects for these sessions:\n\nFile &gt; New Project &gt; New Directory &gt; New Project\nGive it a name and a location (NOT in OneDrive)\n\nYou can access Projects in the top right drop-down.\nIf you’re cloning this from the GitHub repo, New Project &gt; Version Control &gt; Git &gt; paste in the link from the repo."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "TAD R Training",
+    "section": "",
+    "text": "Useful Resources\n\n\n\n\n\n\n\n\n\n\n\n\n\nInitial Setup\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nWojtek Klimowicz\n\n\n\n\n\n\nNo matching items"
   }
 ]
