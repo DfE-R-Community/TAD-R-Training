@@ -1,6 +1,7 @@
 ---
 title: "Initial Setup"
 author: Wojtek Klimowicz
+date: 2024-01-18
 knitr:
   opts_chunk:
     eval: false
@@ -11,6 +12,7 @@ toc: false
 ### Links to R Scripts
 * [{{< fa brands r-project >}} RStudio Basics](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/01-introduction-to-r/02_rstudio_basics.R)
 * [{{< fa brands r-project >}} R Basics](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/01-introduction-to-r/03_r_basics.R)
+* [{{< fa brands r-project >}} Reading Files](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/01-introduction-to-r/04_reading_files.R)
 :::
 
 ## Installing (Software Center)

@@ -6,19 +6,19 @@ project:
 
 website:
   title: "TAD R Training"
+  search:
+    location: navbar
+    type: overlay
   navbar:
+    tools:
+      - icon: github
+        href:  https://github.com/DfE-R-Community/TAD-R-Training
     left:
       - href: index.qmd
         text: Home
-  # sidebar:
-  #   pinned: true
-  #   tools:
-  #     - icon: save
-  #       menu:
-  #         - text: ""
-  #           url:  "#"
 
-freeze: auto
+execute:
+  freeze: auto
 
 format:
   html:
