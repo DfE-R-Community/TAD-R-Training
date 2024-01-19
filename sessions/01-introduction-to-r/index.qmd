@@ -1,5 +1,5 @@
 ---
-title: "Initial Setup"
+title: "Introduction and Setup"
 author: Wojtek Klimowicz
 date: 2024-01-18
 knitr:
