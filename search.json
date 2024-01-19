@@ -7,59 +7,59 @@
     "text": "The DfE R Community Training Support\nR for Data Science\nRStudio Cheatsheets"
   },
   {
-    "objectID": "01-introduction-to-r/index.html",
-    "href": "01-introduction-to-r/index.html",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "TAD R Training",
+    "section": "",
+    "text": "Initial Setup\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nWojtek Klimowicz\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "sessions/01-introduction-to-r/index.html",
+    "href": "sessions/01-introduction-to-r/index.html",
     "title": "Initial Setup",
     "section": "",
     "text": "RStudio Basics\n R Basics\n Reading Files"
   },
   {
-    "objectID": "01-introduction-to-r/index.html#installing-software-center",
-    "href": "01-introduction-to-r/index.html#installing-software-center",
+    "objectID": "sessions/01-introduction-to-r/index.html#installing-software-center",
+    "href": "sessions/01-introduction-to-r/index.html#installing-software-center",
     "title": "Initial Setup",
     "section": "Installing (Software Center)",
     "text": "Installing (Software Center)\n\nR for Windows (Software Center)\nRStudio (Software Center)\nRTools (Software Center)\ngit: https://gitforwindows.org/"
   },
   {
-    "objectID": "01-introduction-to-r/index.html#workspace",
-    "href": "01-introduction-to-r/index.html#workspace",
+    "objectID": "sessions/01-introduction-to-r/index.html#workspace",
+    "href": "sessions/01-introduction-to-r/index.html#workspace",
     "title": "Initial Setup",
     "section": "Workspace",
     "text": "Workspace\nTools &gt; Global Options &gt; General Under Workspace:\n\nUntick restore RData\nNever Ask about saving"
   },
   {
-    "objectID": "01-introduction-to-r/index.html#code-diagnostics",
-    "href": "01-introduction-to-r/index.html#code-diagnostics",
+    "objectID": "sessions/01-introduction-to-r/index.html#code-diagnostics",
+    "href": "sessions/01-introduction-to-r/index.html#code-diagnostics",
     "title": "Initial Setup",
     "section": "Code Diagnostics",
     "text": "Code Diagnostics\n\ninstall.packages(\"lintr\")\n\n\nTools &gt; Global Options &gt; Code &gt; Diagnostics\nTick everything EXCEPT “Warn if variable has no definition in scope”"
   },
   {
-    "objectID": "01-introduction-to-r/index.html#syntax-highlighting-console-output",
-    "href": "01-introduction-to-r/index.html#syntax-highlighting-console-output",
+    "objectID": "sessions/01-introduction-to-r/index.html#syntax-highlighting-console-output",
+    "href": "sessions/01-introduction-to-r/index.html#syntax-highlighting-console-output",
     "title": "Initial Setup",
     "section": "Syntax Highlighting Console Output",
     "text": "Syntax Highlighting Console Output\n\nTools &gt; Global Options &gt; Console\nTick top box (Show syntax highlighting…)"
   },
   {
-    "objectID": "01-introduction-to-r/index.html#colours-and-display",
-    "href": "01-introduction-to-r/index.html#colours-and-display",
+    "objectID": "sessions/01-introduction-to-r/index.html#colours-and-display",
+    "href": "sessions/01-introduction-to-r/index.html#colours-and-display",
     "title": "Initial Setup",
     "section": "Colours and Display",
     "text": "Colours and Display\n\nTools &gt; Global Options &gt; Appearance\nI’m using a light theme for screen sharing, but I’d use a dark theme for actual coding."
   },
   {
-    "objectID": "01-introduction-to-r/index.html#set-up-r-project",
-    "href": "01-introduction-to-r/index.html#set-up-r-project",
+    "objectID": "sessions/01-introduction-to-r/index.html#set-up-r-project",
+    "href": "sessions/01-introduction-to-r/index.html#set-up-r-project",
     "title": "Initial Setup",
     "section": "Set up R Project",
     "text": "Set up R Project\nSet up up an R projects for these sessions:\n\nFile &gt; New Project &gt; New Directory &gt; New Project\nGive it a name and a location (NOT in OneDrive)\n\nYou can access Projects in the top right drop-down.\nIf you’re cloning this from the GitHub repo, New Project &gt; Version Control &gt; Git &gt; paste in the link from the repo."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "TAD R Training",
-    "section": "",
-    "text": "Useful Resources\n\n\n\n\n\n\n\n\n\n\n\n\n\nInitial Setup\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nWojtek Klimowicz\n\n\n\n\n\n\nNo matching items"
   }
 ]
