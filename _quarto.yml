@@ -16,6 +16,8 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: useful-resources.qmd
+        text: Useful Resources
 
 execute:
   freeze: auto
