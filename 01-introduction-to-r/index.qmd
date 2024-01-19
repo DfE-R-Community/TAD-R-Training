@@ -1,0 +1,57 @@
+---
+title: "Initial Setup"
+author: Wojtek Klimowicz
+knitr:
+  opts_chunk:
+    eval: false
+toc: false
+---
+
+::: {.column-margin}
+### Links to R Scripts
+* [{{< fa brands r-project >}} RStudio Basics](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/01-introduction-to-r/02_rstudio_basics.R)
+* [{{< fa brands r-project >}} R Basics](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/01-introduction-to-r/03_r_basics.R)
+:::
+
+## Installing (Software Center)
+
+1. R for Windows (Software Center)
+2. RStudio (Software Center)
+3. RTools (Software Center)
+4. git: [https://gitforwindows.org/]()
+
+## Workspace
+
+Tools > Global Options > General
+Under Workspace:
+
+1. Untick restore RData
+2. Never Ask about saving
+
+## Code Diagnostics
+
+```{r}
+#| eval: false
+install.packages("lintr")
+```
+* Tools > Global Options > Code > Diagnostics
+* Tick everything EXCEPT "Warn if variable has no definition in scope"
+
+## Syntax Highlighting Console Output
+* Tools > Global Options > Console
+* Tick top box (Show syntax highlighting...)
+
+## Colours and Display
+* Tools > Global Options > Appearance
+* I'm using a light theme for screen sharing, but I'd use a dark theme for actual coding.
+
+## Set up R Project
+Set up up an R projects for these sessions:
+
+* File > New Project > New Directory > New Project
+* Give it a name and a location (NOT in OneDrive)
+
+You can access Projects in the top right drop-down.
+
+If you're cloning this from the GitHub repo,
+New Project > Version Control > Git > paste in the link from the repo.

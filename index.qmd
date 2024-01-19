@@ -1,0 +1,10 @@
+---
+title: "TAD R Training"
+listing:
+  id: default
+  # contents: 
+  sort: "date desc"
+  type: default
+  fields: [date, title, author]
+---
+

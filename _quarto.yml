@@ -1,0 +1,30 @@
+project:
+  type: website
+  render:
+    - "*.qmd"
+    # To exclude folders you can do - "!week-09-maps/"
+
+website:
+  title: "TAD R Training"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+  # sidebar:
+  #   pinned: true
+  #   tools:
+  #     - icon: save
+  #       menu:
+  #         - text: ""
+  #           url:  "#"
+
+freeze: auto
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+
