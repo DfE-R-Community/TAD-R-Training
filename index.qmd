@@ -3,7 +3,7 @@ title: "TAD R Training"
 listing:
   id: home-listing
   type: default
-  # contents:
+  contents: "sessions"
   sort: "date desc"
   fields: [date, title, author]
 ---
