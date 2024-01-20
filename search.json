@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "TAD R Training",
     "section": "",
-    "text": "Introduction and Setup\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nWojtek Klimowicz\n\n\n\n\n\n\nNo matching items"
+    "text": "Introduction and Setup\n\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nWojtek Klimowicz\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "sessions/01-introduction-to-r/index.html",
@@ -60,6 +60,6 @@
     "href": "sessions/01-introduction-to-r/index.html#set-up-r-project",
     "title": "Introduction and Setup",
     "section": "Set up R Project",
-    "text": "Set up R Project\nSet up up an R projects for these sessions:\n\nFile &gt; New Project &gt; New Directory &gt; New Project\nGive it a name and a location (NOT in OneDrive)\n\nYou can access Projects in the top right drop-down.\nIf you’re cloning this from the GitHub repo, New Project &gt; Version Control &gt; Git &gt; paste in the link from the repo."
+    "text": "Set up R Project\nSet up an R projects for these sessions:\n\nFile &gt; New Project &gt; New Directory &gt; New Project\nGive it a name and a location (NOT in OneDrive)\n\nYou can access Projects in the top right drop-down.\nIf you’re cloning this from the GitHub repo, New Project &gt; Version Control &gt; Git &gt; paste in the link from the repo."
   }
 ]

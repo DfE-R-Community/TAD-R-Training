@@ -1,1 +1,1 @@
-Sitemap: https://DfE-R-Community.github.io/TAD-R-Training/sitemap.xml
+Sitemap: https://github.com/DfE-R-Community/TAD-R-Training/sitemap.xml
