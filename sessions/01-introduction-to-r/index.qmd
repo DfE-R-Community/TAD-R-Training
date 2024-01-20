@@ -48,7 +48,7 @@ install.packages("lintr")
 * I'm using a light theme for screen sharing, but I'd use a dark theme for actual coding.
 
 ## Set up R Project
-Set up up an R projects for these sessions:
+Set up an R projects for these sessions:
 
 * File > New Project > New Directory > New Project
 * Give it a name and a location (NOT in OneDrive)
