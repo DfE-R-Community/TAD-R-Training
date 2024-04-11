@@ -4,7 +4,7 @@ listing:
   id: home-listing
   type: default
   contents: "sessions"
-  sort: "date desc"
+  sort: "date asc"
   fields: [date, title, author]
 ---
 

@@ -8,6 +8,17 @@ knitr:
 toc: false
 ---
 
+::: {.column-margin}
+### Links to R Scripts
+* [{{< fa brands r-project >}} Tidy Data](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/01-tidy-data.R)
+* [{{< fa brands r-project >}} Mutate](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/02-MUTATE.R)
+* [{{< fa brands r-project >}} Grouping](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/03-GROUPING.R)
+* [{{< fa brands r-project >}} Filter and Select](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/04-FILTER-AND-SELECT.R)
+* [{{< fa brands r-project >}} Joining](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/05-JOINING.R)
+* [{{< fa brands r-project >}} Composing Commands](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/06-COMPOSING-COMMANDS.R)
+* [{{< fa brands r-project >}} Other Stuff](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/07-MISC-OTHER-STUFF.R)
+:::
+
 ## Data wrangling
 
 This repo contains an introduction to the concept of tidy data and using
