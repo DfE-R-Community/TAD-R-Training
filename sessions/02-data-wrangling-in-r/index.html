@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Niall Ward-O’Brien">
+<meta name="dcterms.date" content="2024-04-11">
 
-<title>TAD R Training</title>
+<title>TAD R Training - Data wrangling with tidyverse</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,67 +103,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-home-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-home-listing'] = new List('listing-home-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -137,7 +115,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">TAD R Training</span>
     </a>
   </div>
@@ -148,11 +126,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./useful-resources.html"> 
+    <a class="nav-link" href="../../useful-resources.html"> 
 <span class="menu-text">Useful Resources</span></a>
   </li>  
 </ul>
@@ -168,21 +146,32 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TAD R Training</h1>
+<h1 class="title">Data wrangling with tidyverse</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Niall Ward-O’Brien </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 11, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -193,56 +182,89 @@ window.Quarto = {
 
 
 
+<div class="no-row-height column-margin column-container"><section id="links-to-r-scripts" class="level3">
+<h3 class="anchored" data-anchor-id="links-to-r-scripts">Links to R Scripts</h3>
+<ul>
+<li><a href="https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/01-tidy-data.R"><i class="fa-brands fa-r-project" aria-label="r-project"></i> Tidy Data</a></li>
+<li><a href="https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/02-MUTATE.R"><i class="fa-brands fa-r-project" aria-label="r-project"></i> Mutate</a></li>
+<li><a href="https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/03-GROUPING.R"><i class="fa-brands fa-r-project" aria-label="r-project"></i> Grouping</a></li>
+<li><a href="https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/04-FILTER-AND-SELECT.R"><i class="fa-brands fa-r-project" aria-label="r-project"></i> Filter and Select</a></li>
+<li><a href="https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/05-JOINING.R"><i class="fa-brands fa-r-project" aria-label="r-project"></i> Joining</a></li>
+<li><a href="https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/06-COMPOSING-COMMANDS.R"><i class="fa-brands fa-r-project" aria-label="r-project"></i> Composing Commands</a></li>
+<li><a href="https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/07-MISC-OTHER-STUFF.R"><i class="fa-brands fa-r-project" aria-label="r-project"></i> Other Stuff</a></li>
+</ul>
+</section></div><section id="data-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="data-wrangling">Data wrangling</h2>
+<p>This repo contains an introduction to the concept of tidy data and using the <code>dplyr</code> package for data-wrangling.</p>
+<p>Data wrangling is a general term which describes the process of taking data (which might be messy or unstructured) and combining, transforming and changing it to achieve your goals. <code>dplyr</code>, and the wider <code>tidyverse</code> provide a friendly set of packages for doing these kinds of jobs.</p>
+<p>The scripts in this repository are intended to have useful information for those new to R and more experienced users.</p>
+</section>
+<section id="a-note-on-pipes" class="level2">
+<h2 class="anchored" data-anchor-id="a-note-on-pipes">A note on pipes</h2>
+<p>The pipe command (<code>%&gt;%</code>) is confusing for many R beginners (or it was for me, anyway). The pipe is just a convenient way of stringing together many R commands which operate on the same dataset.</p>
+<p>You can think of a series of R commands as a production line, with different processes (reshaping, adding columns, dropping columns, filtering data) happening on the same dataset as we wrangle it into shape. The pipe is like a <strong>conveyor belt</strong> that takes the output from one code step and passes it to the next. The below shows some pseudo-code (i.e.&nbsp;not real R code) that shows the advantage of using a pipe.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># processing a dataset without pipes:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>processed_data <span class="ot">&lt;-</span> data</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>processed_data <span class="ot">&lt;-</span> add a <span class="fu">column</span>(<span class="at">data =</span> processed_data, ...)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>processed_data <span class="ot">&lt;-</span> drop some <span class="fu">rows</span>(<span class="at">data =</span> processed_data, ...)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>processed_data <span class="ot">&lt;-</span> drop a <span class="fu">column</span>(<span class="at">data =</span> processed_data, ...)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># this is the piped version</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>processed_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>add a <span class="fu">column</span>(...) <span class="sc">%&gt;%</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>drop some <span class="fu">rows</span>(...) <span class="sc">%&gt;%</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>drop a <span class="fu">column</span>(...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>How does the pipe work? Almost all functions used for data wrangling need a data frame to operate on. We normally specify this with the argument <code>data = ...</code>.</p>
+<p>In a long data pipeline, this means a lot of repetitive code for each step of the process. The pipe command takes the output from the line before and automatically assigns it as the <strong>data</strong> for the next step to operate on. This means that we don’t need to specify <code>data = ...</code> - the command knows to use the object which is being passed through the pipe.</p>
+<p>You can always use commands like <code>mutate</code>, <code>filter</code> or <code>select</code> by themselves, by specifying the <code>data</code> they should operate on - pipes are just a way of condensing the code.</p>
+</section>
+<section id="contents" class="level2">
+<h2 class="anchored" data-anchor-id="contents">Contents</h2>
+<p>Each script focuses on one or more commands in <code>dplyr</code> or the wider tidyverse:</p>
+<ul>
+<li><p><code>mutate</code> : adds a new column to a data.frame</p></li>
+<li><p><code>group_by</code>: is combined with mutate, summarise or filter to perform operations on groups of rows</p></li>
+<li><p><code>filter</code>: removes rows based on a logical test</p></li>
+<li><p><code>select</code>: remove, reorder or rename columns</p></li>
+<li><p><code>left/full/right/anti_join</code>: merge tables together</p></li>
+<li><p><code>pivot_longer/pivot_wider</code>: reshape tables, turning rows into columns or vice versa</p></li>
+<li><p>misc. other stuff: <code>distinct</code> to remove duplicates, <code>pull</code> to get values from a column, <code>stringr</code> to manipulate strings</p></li>
+</ul>
+</section>
+<section id="some-general-tips-for-data-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="some-general-tips-for-data-wrangling">Some general tips for data wrangling</h2>
+<ul>
+<li><p>If in doubt, use Google (or talk to us/friendly colleagues)</p></li>
+<li><p>If you find that you’re writing the same code many times (e.g.&nbsp;doing the same thing to many different columns) there is almost certainly an easier way of writing your code. <code>mutate</code>, <code>filter</code> and <code>select</code> all have convenient ways of doing the same operation many times.</p></li>
+<li><p>If you’re tempted to write a <code>for</code> loop to do something, think about if you could solve by reshaping your data instead.</p></li>
+<li><p>Name columns consistently - this makes it easier to do things like pivot data and select groups of columns using commands like <code>starts_with</code>.</p></li>
+</ul>
+</section>
+<section id="dialects-of-r" class="level2">
+<h2 class="anchored" data-anchor-id="dialects-of-r">Dialects of R</h2>
+<p>One confusing aspect of R is that there’s no single ‘right’ way of doing even simple tasks.</p>
+<p>There are a number of ‘dialects’ of R that you will get used to seeing in the wild (i.e.&nbsp;on StackExchange). There is the old-fashioned ‘base R’ approach, which is normally easy to identify if you see a lot of $ signs. Then there’s the friendlier <code>tidyverse</code> approach, which is often indicated by commands like ‘mutate’, ‘filter’, ‘pivot_’ and the pipe operator <code>%&gt;%</code>. Finally, you may also see people using <code>data.table</code> , which typically has a lot of square brackets and also the <code>:=</code> symbol.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r R code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adding a new column to data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># in base R:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>total_number_of_teachers <span class="ot">&lt;-</span> data<span class="sc">$</span>n_female_teachers <span class="sc">+</span> data<span class="sc">$</span>n_male_teachers</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># in dplyr/tidyverse:</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_number_of_teachers =</span> n_female_teachers <span class="sc">+</span> n_male_teachers)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># in data.table:</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>data[, total_number_of_teachers <span class="sc">:</span><span class="er">=</span> n_female_teachers <span class="sc">+</span> n_male_teachers]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>All of these approaches are valid, but <code>tidyverse</code> commands are often easier to understand - which is why we recommend using it where possible. If you’re searching for a solution to a problem and the results are not very comprehensible, this might because the code is being written to use base R or data.table. You may want to add ‘dplyr’ to your query - e.g.&nbsp;<code>how to remove columns from a dataframe dplyr</code> .</p>
 
 
+</section>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-home-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1705536000000" data-listing-file-modified-sort="1712845590348" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="179">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./sessions/01-introduction-to-r/index.html" class="no-external">Introduction and Setup</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./sessions/01-introduction-to-r/index.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./sessions/01-introduction-to-r/index.html" class="no-external">
-<div class="listing-date">
-Jan 18, 2024
-</div>
-<div class="listing-author">
-Wojtek Klimowicz
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1712793600000" data-listing-file-modified-sort="1712845590348" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="827">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./sessions/02-data-wrangling-in-r/index.html" class="no-external">Data wrangling with tidyverse</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./sessions/02-data-wrangling-in-r/index.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./sessions/02-data-wrangling-in-r/index.html" class="no-external">
-<div class="listing-date">
-Apr 11, 2024
-</div>
-<div class="listing-author">
-Niall Ward-O’Brien
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

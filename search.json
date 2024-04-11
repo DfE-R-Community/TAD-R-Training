@@ -7,13 +7,6 @@
     "text": "Past recordings are stored here (DfE only).\n\nThe DfE R Community Training Support\nR for Data Science\nRStudio Cheatsheets"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "TAD R Training",
-    "section": "",
-    "text": "Introduction and Setup\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nWojtek Klimowicz\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "sessions/01-introduction-to-r/index.html",
     "href": "sessions/01-introduction-to-r/index.html",
     "title": "Introduction and Setup",
@@ -61,5 +54,54 @@
     "title": "Introduction and Setup",
     "section": "Set up R Project",
     "text": "Set up R Project\nSet up an R projects for these sessions:\n\nFile &gt; New Project &gt; New Directory &gt; New Project\nGive it a name and a location (NOT in OneDrive)\n\nYou can access Projects in the top right drop-down.\nIf you’re cloning this from the GitHub repo:\n\nNew Project &gt; Version Control &gt; Git &gt; paste in the link from the repo."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "TAD R Training",
+    "section": "",
+    "text": "Introduction and Setup\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nWojtek Klimowicz\n\n\n\n\n\n\n\nData wrangling with tidyverse\n\n\n\n\n\n\n\n\nApr 11, 2024\n\n\nNiall Ward-O’Brien\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "sessions/02-data-wrangling-in-r/index.html",
+    "href": "sessions/02-data-wrangling-in-r/index.html",
+    "title": "Data wrangling with tidyverse",
+    "section": "",
+    "text": "Tidy Data\n Mutate\n Grouping\n Filter and Select\n Joining\n Composing Commands\n Other Stuff"
+  },
+  {
+    "objectID": "sessions/02-data-wrangling-in-r/index.html#data-wrangling",
+    "href": "sessions/02-data-wrangling-in-r/index.html#data-wrangling",
+    "title": "Data wrangling with tidyverse",
+    "section": "Data wrangling",
+    "text": "Data wrangling\nThis repo contains an introduction to the concept of tidy data and using the dplyr package for data-wrangling.\nData wrangling is a general term which describes the process of taking data (which might be messy or unstructured) and combining, transforming and changing it to achieve your goals. dplyr, and the wider tidyverse provide a friendly set of packages for doing these kinds of jobs.\nThe scripts in this repository are intended to have useful information for those new to R and more experienced users."
+  },
+  {
+    "objectID": "sessions/02-data-wrangling-in-r/index.html#a-note-on-pipes",
+    "href": "sessions/02-data-wrangling-in-r/index.html#a-note-on-pipes",
+    "title": "Data wrangling with tidyverse",
+    "section": "A note on pipes",
+    "text": "A note on pipes\nThe pipe command (%&gt;%) is confusing for many R beginners (or it was for me, anyway). The pipe is just a convenient way of stringing together many R commands which operate on the same dataset.\nYou can think of a series of R commands as a production line, with different processes (reshaping, adding columns, dropping columns, filtering data) happening on the same dataset as we wrangle it into shape. The pipe is like a conveyor belt that takes the output from one code step and passes it to the next. The below shows some pseudo-code (i.e. not real R code) that shows the advantage of using a pipe.\n\n# processing a dataset without pipes:\nprocessed_data &lt;- data\n\nprocessed_data &lt;- add a column(data = processed_data, ...)\n\nprocessed_data &lt;- drop some rows(data = processed_data, ...)\n\nprocessed_data &lt;- drop a column(data = processed_data, ...)\n\n# this is the piped version\nprocessed_data &lt;- data %&gt;%\nadd a column(...) %&gt;%\ndrop some rows(...) %&gt;%\ndrop a column(...)\nHow does the pipe work? Almost all functions used for data wrangling need a data frame to operate on. We normally specify this with the argument data = ....\nIn a long data pipeline, this means a lot of repetitive code for each step of the process. The pipe command takes the output from the line before and automatically assigns it as the data for the next step to operate on. This means that we don’t need to specify data = ... - the command knows to use the object which is being passed through the pipe.\nYou can always use commands like mutate, filter or select by themselves, by specifying the data they should operate on - pipes are just a way of condensing the code."
+  },
+  {
+    "objectID": "sessions/02-data-wrangling-in-r/index.html#contents",
+    "href": "sessions/02-data-wrangling-in-r/index.html#contents",
+    "title": "Data wrangling with tidyverse",
+    "section": "Contents",
+    "text": "Contents\nEach script focuses on one or more commands in dplyr or the wider tidyverse:\n\nmutate : adds a new column to a data.frame\ngroup_by: is combined with mutate, summarise or filter to perform operations on groups of rows\nfilter: removes rows based on a logical test\nselect: remove, reorder or rename columns\nleft/full/right/anti_join: merge tables together\npivot_longer/pivot_wider: reshape tables, turning rows into columns or vice versa\nmisc. other stuff: distinct to remove duplicates, pull to get values from a column, stringr to manipulate strings"
+  },
+  {
+    "objectID": "sessions/02-data-wrangling-in-r/index.html#some-general-tips-for-data-wrangling",
+    "href": "sessions/02-data-wrangling-in-r/index.html#some-general-tips-for-data-wrangling",
+    "title": "Data wrangling with tidyverse",
+    "section": "Some general tips for data wrangling",
+    "text": "Some general tips for data wrangling\n\nIf in doubt, use Google (or talk to us/friendly colleagues)\nIf you find that you’re writing the same code many times (e.g. doing the same thing to many different columns) there is almost certainly an easier way of writing your code. mutate, filter and select all have convenient ways of doing the same operation many times.\nIf you’re tempted to write a for loop to do something, think about if you could solve by reshaping your data instead.\nName columns consistently - this makes it easier to do things like pivot data and select groups of columns using commands like starts_with."
+  },
+  {
+    "objectID": "sessions/02-data-wrangling-in-r/index.html#dialects-of-r",
+    "href": "sessions/02-data-wrangling-in-r/index.html#dialects-of-r",
+    "title": "Data wrangling with tidyverse",
+    "section": "Dialects of R",
+    "text": "Dialects of R\nOne confusing aspect of R is that there’s no single ‘right’ way of doing even simple tasks.\nThere are a number of ‘dialects’ of R that you will get used to seeing in the wild (i.e. on StackExchange). There is the old-fashioned ‘base R’ approach, which is normally easy to identify if you see a lot of $ signs. Then there’s the friendlier tidyverse approach, which is often indicated by commands like ‘mutate’, ‘filter’, ‘pivot_’ and the pipe operator %&gt;%. Finally, you may also see people using data.table , which typically has a lot of square brackets and also the := symbol.\n# adding a new column to data\n\n# in base R:\ndata$total_number_of_teachers &lt;- data$n_female_teachers + data$n_male_teachers\n\n# in dplyr/tidyverse:\ndata &lt;- data %&gt;%\n  mutate(total_number_of_teachers = n_female_teachers + n_male_teachers)\n  \n# in data.table:\ndata[, total_number_of_teachers := n_female_teachers + n_male_teachers]\nAll of these approaches are valid, but tidyverse commands are often easier to understand - which is why we recommend using it where possible. If you’re searching for a solution to a problem and the results are not very comprehensible, this might because the code is being written to use base R or data.table. You may want to add ‘dplyr’ to your query - e.g. how to remove columns from a dataframe dplyr ."
   }
 ]
