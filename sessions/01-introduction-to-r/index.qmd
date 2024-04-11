@@ -11,7 +11,9 @@ toc: false
 ::: {.column-margin}
 ### Links to R Scripts
 [{{< fa brands r-project >}} RStudio Basics](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/01-introduction-to-r/02_rstudio_basics.R)
+
 [{{< fa brands r-project >}} R Basics](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/01-introduction-to-r/03_r_basics.R)
+
 [{{< fa brands r-project >}} Reading Files](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/01-introduction-to-r/04_reading_files.R)
 :::
 
