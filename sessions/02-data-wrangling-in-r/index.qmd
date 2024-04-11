@@ -1,0 +1,152 @@
+---
+title: "Data wrangling with tidyverse"
+author: "Niall Ward-O'Brien"
+date: 2024-04-11
+knitr:
+  opts_chunk:
+    eval: false
+toc: false
+---
+
+::: {.column-margin}
+### Links to R Scripts
+* [{{< fa brands r-project >}} Tidy Data](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/01-tidy-data.R)
+* [{{< fa brands r-project >}} Mutate](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/02-MUTATE.R)
+* [{{< fa brands r-project >}} Grouping](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/03-GROUPING.R)
+* [{{< fa brands r-project >}} Filter and Select](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/04-FILTER-AND-SELECT.R)
+* [{{< fa brands r-project >}} Joining](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/05-JOINING.R)
+* [{{< fa brands r-project >}} Composing Commands](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/06-COMPOSING-COMMANDS.R)
+* [{{< fa brands r-project >}} Other Stuff](https://github.com/DfE-R-Community/TAD-R-Training/blob/master/sessions/02-data-wrangling-in-r/07-MISC-OTHER-STUFF.R)
+:::
+
+## Data wrangling
+
+This repo contains an introduction to the concept of tidy data and using
+the `dplyr` package for data-wrangling.
+
+Data wrangling is a general term which describes the process of taking
+data (which might be messy or unstructured) and combining, transforming
+and changing it to achieve your goals. `dplyr`, and the wider
+`tidyverse` provide a friendly set of packages for doing these kinds of
+jobs.
+
+The scripts in this repository are intended to have useful information
+for those new to R and more experienced users.
+
+## A note on pipes
+
+The pipe command (`%>%`) is confusing for many R beginners (or it was
+for me, anyway). The pipe is just a convenient way of stringing together
+many R commands which operate on the same dataset.
+
+You can think of a series of R commands as a production line, with
+different processes (reshaping, adding columns, dropping columns,
+filtering data) happening on the same dataset as we wrangle it into
+shape. The pipe is like a **conveyor belt** that takes the output from
+one code step and passes it to the next. The below shows some
+pseudo-code (i.e. not real R code) that shows the advantage of using a
+pipe.
+
+``` r
+
+# processing a dataset without pipes:
+processed_data <- data
+
+processed_data <- add a column(data = processed_data, ...)
+
+processed_data <- drop some rows(data = processed_data, ...)
+
+processed_data <- drop a column(data = processed_data, ...)
+
+# this is the piped version
+processed_data <- data %>%
+add a column(...) %>%
+drop some rows(...) %>%
+drop a column(...)
+```
+
+How does the pipe work? Almost all functions used for data wrangling
+need a data frame to operate on. We normally specify this with the
+argument `data = ...`.
+
+In a long data pipeline, this means a lot of repetitive code for each
+step of the process. The pipe command takes the output from the line
+before and automatically assigns it as the **data** for the next step to
+operate on. This means that we don't need to specify `data = ...` - the
+command knows to use the object which is being passed through the pipe.
+
+You can always use commands like `mutate`, `filter` or `select` by
+themselves, by specifying the `data` they should operate on - pipes are
+just a way of condensing the code.
+
+## Contents
+
+Each script focuses on one or more commands in `dplyr` or the wider
+tidyverse:
+
+-   `mutate` : adds a new column to a data.frame
+
+-   `group_by`: is combined with mutate, summarise or filter to perform
+    operations on groups of rows
+
+-   `filter`: removes rows based on a logical test
+
+-   `select`: remove, reorder or rename columns
+
+-   `left/full/right/anti_join`: merge tables together
+
+-   `pivot_longer/pivot_wider`: reshape tables, turning rows into
+    columns or vice versa
+
+-   misc. other stuff: `distinct` to remove duplicates, `pull` to get
+    values from a column, `stringr` to manipulate strings
+
+## Some general tips for data wrangling
+
+-   If in doubt, use Google (or talk to us/friendly colleagues)
+
+-   If you find that you're writing the same code many times (e.g. doing
+    the same thing to many different columns) there is almost certainly
+    an easier way of writing your code. `mutate`, `filter` and `select`
+    all have convenient ways of doing the same operation many times.
+
+-   If you're tempted to write a `for` loop to do something, think about
+    if you could solve by reshaping your data instead.
+
+-   Name columns consistently - this makes it easier to do things like
+    pivot data and select groups of columns using commands like
+    `starts_with`.
+
+## Dialects of R
+
+One confusing aspect of R is that there's no single 'right' way of doing
+even simple tasks.
+
+There are a number of 'dialects' of R that you will get used to seeing
+in the wild (i.e. on StackExchange). There is the old-fashioned 'base R'
+approach, which is normally easy to identify if you see a lot of \$
+signs. Then there's the friendlier `tidyverse` approach, which is often
+indicated by commands like 'mutate', 'filter', 'pivot\_' and the pipe
+operator `%>%`. Finally, you may also see people using `data.table` ,
+which typically has a lot of square brackets and also the `:=` symbol.
+
+``` {.r .R}
+# adding a new column to data
+
+# in base R:
+data$total_number_of_teachers <- data$n_female_teachers + data$n_male_teachers
+
+# in dplyr/tidyverse:
+data <- data %>%
+  mutate(total_number_of_teachers = n_female_teachers + n_male_teachers)
+  
+# in data.table:
+data[, total_number_of_teachers := n_female_teachers + n_male_teachers]
+```
+
+All of these approaches are valid, but `tidyverse` commands are often
+easier to understand - which is why we recommend using it where
+possible. If you're searching for a solution to a problem and the
+results are not very comprehensible, this might because the code is
+being written to use base R or data.table. You may want to add 'dplyr'
+to your query - e.g. `how to remove columns from a dataframe dplyr` .
