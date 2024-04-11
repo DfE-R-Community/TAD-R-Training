@@ -11,7 +11,7 @@
     "href": "sessions/01-introduction-to-r/index.html",
     "title": "Introduction and Setup",
     "section": "",
-    "text": "RStudio Basics\n R Basics\n Reading Files"
+    "text": "RStudio Basics  R Basics  Reading Files"
   },
   {
     "objectID": "sessions/01-introduction-to-r/index.html#installing-software-center",
@@ -67,7 +67,7 @@
     "href": "sessions/02-data-wrangling-in-r/index.html",
     "title": "Data wrangling with tidyverse",
     "section": "",
-    "text": "Tidy Data\n Mutate\n Grouping\n Filter and Select\n Joining\n Composing Commands\n Other Stuff"
+    "text": "Tidy Data  Mutate  Grouping  Filter and Select  Joining  Composing Commands  Other Stuff"
   },
   {
     "objectID": "sessions/02-data-wrangling-in-r/index.html#data-wrangling",
