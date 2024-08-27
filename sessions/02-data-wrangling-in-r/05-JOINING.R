@@ -66,12 +66,12 @@ full_join_example <- full_join(flights,
 ## ANTI JOIN ----------------------------------
 
 # what rows are in flights but not in planes?
-anti_join_flights <- anti_join(flights, 
+flights_not_planes <- anti_join(flights, 
                                planes, 
                                by = 'tailnum')
 
 # what rows are in planes but not in flights?
-anti_join_planes <- anti_join(planes, 
+planes_not_flights <- anti_join(planes, 
                                flights, 
                                by = 'tailnum')
 
