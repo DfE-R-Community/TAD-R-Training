@@ -1,4 +1,6 @@
 
+library(tidyverse)
+
 flights <- nycflights13::flights
 
 
@@ -65,4 +67,16 @@ flights %>%
 
 # Unless you do a lot of this, not worth learning.  Use StackExchange and/or
 # copilot.  Make sure you check the results either way
+
+# Creating data frames ------------------------------------------------------------------
+
+tibble <- tibble(
+  airport = c('NY', 'LA', 'MI'),
+  flights = c('5', '15', '23')
+)
+
+every_destination_to_every_origin <- expand_grid(
+  origin = unique(flights$origin),
+  dest = unique(flights$dest)
+)
 
