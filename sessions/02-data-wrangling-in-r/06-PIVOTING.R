@@ -5,7 +5,7 @@ library(nycflights13)
 
 # PIVOTS -----------------------------------------------------------------------
 
-# pivoting reshapes a data.frame by turning a column into multiple colum
+# pivoting reshapes a data.frame by turning a column into multiple columns
 # (pivot_wider) or by collapsing one or more columns into a single column
 # (pivot_longer).
 
@@ -81,6 +81,7 @@ long_data <- flights %>%
                                    'dep_time',
                                    'sched_dep_time')))
 
+# make a (maybe not very useful) graph showing times of flights
 long_data %>%
   arrange(time_hour,
           event) %>%
@@ -95,3 +96,27 @@ long_data %>%
   geom_path(colour = 'grey') +
   geom_point(size = 2)
   
+# pivoting for exploratory data analysis ---------------------------------------
+
+# challenge - we want to make histograms of all our numeric variables to look at
+# their distributions on the same plot
+flights %>%
+  select(origin,
+         where(is.numeric)) %>%
+  
+  pivot_longer(
+    cols = c(-origin),
+    names_to = 'var',
+    values_to = 'value'
+  ) %>%
+  
+  ggplot(aes(x = value,
+             fill = origin)) +
+  
+  geom_histogram(colour = 'black',
+                 bins = 40) +
+  
+  facet_wrap(
+    ~ var,
+    scales = 'free'
+  )
