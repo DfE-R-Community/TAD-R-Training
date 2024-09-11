@@ -26,7 +26,7 @@ flights %>%
 
 # PULL --------------------------------------------------------------------
 
-# what if you want to get a specific number out of a dataframe?  You can use
+# what if you want to get a specific value out of a dataframe?  You can use
 # PULL
 when_did_my_flight_leave <- flights %>%
   filter(tailnum == 'N14228', month == 3, day == 30) %>%
@@ -65,16 +65,18 @@ flights %>%
   mutate(numbers_in_tailnum = str_extract(tailnum, '\\d+')) %>%
   select(tailnum, numbers_in_tailnum)
 
-# Unless you do a lot of this, not worth learning.  Use StackExchange and/or
-# copilot.  Make sure you check the results either way
+# Unless you do a lot of this, not worth learning REGEX.  Use StackExchange
+# and/or copilot.  Make sure you check the results, whichever you use
 
-# Creating data frames ------------------------------------------------------------------
+# Creating data frames ---------------------------------------------------------
 
+# create a tibble by specifying each column at a time and glueing them together
 tibble <- tibble(
   airport = c('NY', 'LA', 'MI'),
   flights = c('5', '15', '23')
 )
 
+# use expand_grid to get every combination of the vectors you pass in
 every_destination_to_every_origin <- expand_grid(
   origin = unique(flights$origin),
   dest = unique(flights$dest)
