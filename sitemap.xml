@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://DfE-R-Community.github.io/TAD-R-Training/useful-resources.html</loc>
-    <lastmod>2024-04-11T18:06:16.788Z</lastmod>
-  </url>
-  <url>
     <loc>https://DfE-R-Community.github.io/TAD-R-Training/sessions/01-introduction-to-r/index.html</loc>
-    <lastmod>2024-04-11T18:06:16.784Z</lastmod>
-  </url>
-  <url>
-    <loc>https://DfE-R-Community.github.io/TAD-R-Training/index.html</loc>
-    <lastmod>2024-04-11T18:06:16.784Z</lastmod>
+    <lastmod>2024-09-11T13:53:42.288Z</lastmod>
   </url>
   <url>
     <loc>https://DfE-R-Community.github.io/TAD-R-Training/sessions/02-data-wrangling-in-r/index.html</loc>
-    <lastmod>2024-04-11T18:06:16.788Z</lastmod>
+    <lastmod>2024-09-11T13:53:42.288Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DfE-R-Community.github.io/TAD-R-Training/index.html</loc>
+    <lastmod>2024-09-11T13:53:42.284Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DfE-R-Community.github.io/TAD-R-Training/useful-resources.html</loc>
+    <lastmod>2024-09-11T13:53:42.288Z</lastmod>
   </url>
 </urlset>

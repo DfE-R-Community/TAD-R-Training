@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "useful-resources.html",
-    "href": "useful-resources.html",
-    "title": "Useful Resources",
-    "section": "",
-    "text": "Past recordings are stored here (DfE only).\n\nThe DfE R Community Training Support\nR for Data Science\nRStudio Cheatsheets"
-  },
-  {
     "objectID": "sessions/01-introduction-to-r/index.html",
     "href": "sessions/01-introduction-to-r/index.html",
     "title": "Introduction and Setup",
@@ -56,18 +49,11 @@
     "text": "Set up R Project\nSet up an R projects for these sessions:\n\nFile &gt; New Project &gt; New Directory &gt; New Project\nGive it a name and a location (NOT in OneDrive)\n\nYou can access Projects in the top right drop-down.\nIf you’re cloning this from the GitHub repo:\n\nNew Project &gt; Version Control &gt; Git &gt; paste in the link from the repo."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "TAD R Training",
-    "section": "",
-    "text": "Introduction and Setup\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nWojtek Klimowicz\n\n\n\n\n\n\n\nData wrangling with tidyverse\n\n\n\n\n\n\n\n\nApr 11, 2024\n\n\nNiall Ward-O’Brien\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "sessions/02-data-wrangling-in-r/index.html",
     "href": "sessions/02-data-wrangling-in-r/index.html",
     "title": "Data wrangling with tidyverse",
     "section": "",
-    "text": "Tidy Data\n Mutate\n Grouping\n Filter and Select\n Joining\n Composing Commands\n Other Stuff"
+    "text": "Tidy Data\n Mutate\n Grouping\n Filter and Select\n Joining\n Pivoting\n Other Stuff\n Extended Example"
   },
   {
     "objectID": "sessions/02-data-wrangling-in-r/index.html#data-wrangling",
@@ -103,5 +89,19 @@
     "title": "Data wrangling with tidyverse",
     "section": "Dialects of R",
     "text": "Dialects of R\nOne confusing aspect of R is that there’s no single ‘right’ way of doing even simple tasks.\nThere are a number of ‘dialects’ of R that you will get used to seeing in the wild (i.e. on StackExchange). There is the old-fashioned ‘base R’ approach, which is normally easy to identify if you see a lot of $ signs. Then there’s the friendlier tidyverse approach, which is often indicated by commands like ‘mutate’, ‘filter’, ‘pivot_’ and the pipe operator %&gt;%. Finally, you may also see people using data.table , which typically has a lot of square brackets and also the := symbol.\n# adding a new column to data\n\n# in base R:\ndata$total_number_of_teachers &lt;- data$n_female_teachers + data$n_male_teachers\n\n# in dplyr/tidyverse:\ndata &lt;- data %&gt;%\n  mutate(total_number_of_teachers = n_female_teachers + n_male_teachers)\n  \n# in data.table:\ndata[, total_number_of_teachers := n_female_teachers + n_male_teachers]\nAll of these approaches are valid, but tidyverse commands are often easier to understand - which is why we recommend using it where possible. If you’re searching for a solution to a problem and the results are not very comprehensible, this might because the code is being written to use base R or data.table. You may want to add ‘dplyr’ to your query - e.g. how to remove columns from a dataframe dplyr ."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "TAD R Training",
+    "section": "",
+    "text": "Introduction and Setup\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nWojtek Klimowicz\n\n\n\n\n\n\n\nData wrangling with tidyverse\n\n\n\n\n\n\n\n\nApr 11, 2024\n\n\nNiall Ward-O’Brien\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "useful-resources.html",
+    "href": "useful-resources.html",
+    "title": "Useful Resources",
+    "section": "",
+    "text": "Past recordings are stored here (DfE only).\n\nThe DfE R Community Training Support\nR for Data Science\nRStudio Cheatsheets"
   }
 ]
